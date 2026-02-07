@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Proposal for Puja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e91e63, #f06292, #ffb3ba); /* Richer romantic gradient */
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      height: 100vh; /* Full height for proper fall */
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/heart-pattern.png') repeat;
+      opacity: 0.1;
+      z-index: -1;
+    }
+    .container {
+      padding-top: 80px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .success-container {
+      display: none;
+      padding-top: 50px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      color: #fff; /* White for contrast */
+      font-size: 2.5em;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      animation: typing 4s steps(30) 1s forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #fff;
+      display: inline-block;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    h2 {
+      color: #fff; /* White for contrast */
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    button {
+      padding: 15px 35px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    button::before {
+      content: "💖";
+      position: absolute;
+      left: -30px;
+      top: -10px;
+      font-size: 1.5em;
+      animation: float 2s ease-in-out infinite;
+    }
+    button::after {
+      content: "✨";
+      position: absolute;
+      right: -30px;
+      top: -10px;
+      font-size: 1.5em;
+      animation: float 2s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    #yes {
+      background: linear-gradient(45deg, #e91e63, #f06292);
+      color: white;
+    }
+    #no {
+      background: linear-gradient(45deg, #555, #999);
+      color: white;
+    }
+    #cats, #cryingCat {
+      display: none;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    #cats img, #cryingCat img {
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .message {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      color: #fff; /* White for contrast */
+      font-size: 1.5em;
+      margin-top: 15px;
+      animation: fadeIn 2s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .success-container img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+    .loveText {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      color: #fff; /* White for contrast */
+      font-size: 1.8em;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .poem {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      color: #fff; /* White for contrast */
+      font-size: 1.5em;
+      margin-top: 20px;
+      line-height: 1.8;
+      animation: fadeIn 4s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .repeatLove {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #fff; /* White for contrast */
+      font-size: 1.2em;
+      margin-top: 15px;
+      line-height: 1.6;
+      animation: fadeIn 5s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .emoji {
+      position: absolute;
+      font-size: 3em; /* Bigger emojis */
+      animation: fall 4s linear forwards; /* Longer fall */
+      pointer-events: none;
+      z-index: 10; /* On top */
+    }
+    @keyframes fall {
+      to {transform: translateY(100vh);}
+    }
+  </style>
+</head>
+<body>
+  <!-- Proposal Section -->
+  <div class="container" id="proposal-container">
+    <h1>Puja, will you be mine forever? 💕</h1><br>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+
+    <!-- Crying cat for No -->
+    <div id="cryingCat">
+      <h2>Please accept me, Puja 😢</h2>
+      <img id="noGif" src="" alt="Crying cat">
+      <div id="noMsg" class="message"></div>
+    </div>
+
+    <!-- Temporary for Yes (before 5 clicks) -->
+    <div id="cats">
+      <h2>Keep going, my love! ❤️</h2>
+      <img id="yesGif" src="" alt="Cats animation">
+      <div id="yesMsg" class="message"></div>
+    </div>
+  </div>
+
+  <!-- Success Section (Hidden initially) -->
+  <div class="success-container" id="success-container">
+    <h1>Finally YES! Our Forever Begins! ❤️</h1>
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Romantic cats gif">
+    <div class="loveText">I knew it… you love me 💖</div>
+    <div class="poem">
+      Roses are red, violets are blue,<br>
+      My heart beats only for you.<br>
+      In your eyes, I see my forever,<br>
+      Puja, will you be mine? Together we'll weather.<br>
+      💕🌹
+    </div>
+    <div class="repeatLove">
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ <br>
+      I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️ I love you ❤️
+    </div>
+  </div>
+
+  <script>
+    let yesClicks = 0;
+    let noClicks = 0;
+    const yesBtn = document.getElementById('yes');
+    const noBtn = document.getElementById('no');
+    const catsDiv = document.getElementById('cats');
+    const cryingCatDiv = document.getElementById('cryingCat');
+    const yesGif = document.getElementById('yesGif');
+    const noGif = document.getElementById('noGif');
+    const noMsg = document.getElementById('noMsg');
+    const yesMsg = document.getElementById('yesMsg');
+    const proposalContainer = document.getElementById('proposal-container');
+    const successContainer = document.getElementById('success-container');
+
+    const yesGifs = [
+      "https://media.giphy.com/media/12HZukMBlutpoQ/giphy.gif",
+      "https://media.giphy.com/media/krP2NRkLqnO4Y/giphy.gif",
+      "https://media.giphy.com/media/10dU7AN7xsi1I4/giphy.gif",
+      "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
+    ];
+
+    const yesMsgs = [
+      "Haha Puja, still not a YES 😜 Keep trying, my love!",
+      "Keep clicking, love is near ❤️ You're my everything!",
+      "Almost there… don’t give up 💕 Our story is just beginning!",
+      "One more step to happiness 🌹 I promise forever!"
+    ];
+
+    const noGifs = [
+      "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif",
+      "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+      "https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif"
+    ];
+
+    const noMsgs = [
+      "Why Puja 😢 My heart is yours!",
+      "Don’t break my heart 💔 I’ll wait forever!",
+      "I’ll keep waiting… 🌧️ Say yes, please!"
+    ];
+
+    yesBtn.addEventListener('click', () => {
+      yesClicks++;
+      cryingCatDiv.style.display = "none"; 
+      yesBtn.style.transform = "scale(1.1)";
+      setTimeout(() => yesBtn.style.transform = "scale(1)", 200);
+
+      if (yesClicks < 5) {
+        let gifIndex = (yesClicks-1) % yesGifs.length;
+        catsDiv.style.display = "block";
+        yesGif.src = yesGifs[gifIndex];
+        yesMsg.innerText = yesMsgs[gifIndex];
+      } else {
+        // Switch to success section
+        proposalContainer.style.display = "none";
+        successContainer.style.display = "block";
+        startHeartRoseShower();
+      }
+    });
+
+    noBtn.addEventListener('click', () => {
+      noClicks++;
+      catsDiv.style.display = "none";
+      cryingCatDiv.style.display = "block";
+      noBtn.style.transform = "scale(1.1)";
+      setTimeout(() => noBtn.style.transform = "scale(1)", 200);
+
+      let gifIndex = noClicks % noGifs.length;
+      noGif.src = noGifs[gifIndex];
+      noMsg.innerText = noMsgs[gifIndex];
+    });
+
+    function startHeartRoseShower() {
+      alert("Shower starting!"); // Debug alert
+      const emojis = ["❤️", "🌹"]; // Only hearts and roses
+      for (let i = 0; i < 200; i++) { // More intense shower
+        const emoji = document.createElement('div');
+        emoji.className = 'emoji';
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.animationDelay = Math.random() * 2 + 's';
+        document.body.appendChild(emoji);
+        setTimeout(() => emoji.remove(), 5000); // Longer duration
+      }
+    }
+  </script>
+</body>
+</html>
